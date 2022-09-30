@@ -11,11 +11,11 @@ for i in response.json():
   all_match_ids.append(match_id)
 
 players_bank = []
-
-for id in all_match_ids:
+for id in all_match_ids[0:10]:
   print("retrieving match with id: {id}".format(id = id))
   match_data = requests.get("https://api.opendota.com/api/matches/{match_id}".format(match_id = match_id)).json()
   for player in match_data['players']:
     players_bank.append(player['account_id'])
+
 
 print(players_bank)
