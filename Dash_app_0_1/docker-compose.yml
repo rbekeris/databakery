@@ -17,7 +17,6 @@ services:
     build:
       context: .
       dockerfile: ./Bakerapp/Dockerfile
-    env_file: .env
     links:
       - db
     ports:
