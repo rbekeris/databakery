@@ -2,7 +2,7 @@ FROM python:3.9
 
 #Copy files needed for the app to run
 COPY ./Bakerapp /Bakerapp
-COPY ./Launch_Codes/client_secrets.json /Bakerapp/client_secrets.json
+COPY ./Launch_Codes/keys.json /Bakerapp/keys.json
 WORKDIR /Bakerapp
 RUN pip install -r requirements.txt
 
