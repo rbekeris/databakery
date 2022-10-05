@@ -7,8 +7,6 @@ import numpy as np
 import json
 
 def create_plot()
-    df = 
-
     trace_1 = go.Scatter(
                         x=(1,2,3),
                         y=(1,2,3),
