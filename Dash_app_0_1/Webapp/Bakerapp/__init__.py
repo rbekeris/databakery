@@ -6,8 +6,7 @@ from flask_login import LoginManager
 from config import config
 from flask import url_for
 from wtforms import ValidationError, fields
-from wtforms.validators import required
-from wtforms.widgets import HTMLString, html_params, FileInput
+from wtforms.widgets import html_params
 from markupsafe import Markup
 from gettext import gettext
 from flask import Flask
@@ -17,10 +16,6 @@ import json
 bootstrap = Bootstrap()
 moment = Moment()
 db = SQLAlchemy()
-
-from .pre_match.views import FirstView
-from .post_match.views import SecondView
-
 
 login_manager = LoginManager()
 """The login_view attribute of the LoginManager object sets the endpoint for the login page.
@@ -45,6 +40,12 @@ def create_app(config_name):
 
     from .auth import auth as auth_blueprint
     app.register_blueprint(auth_blueprint, url_prefix="/auth")
+
+    from .post_match import post_match as post_match_blueprint
+    app.register_blueprint(post_match_blueprint, url_prefix="/post_match")
+
+    from .pre_match import pre_match as pre_match_blueprint
+    app.register_blueprint(pre_match_blueprint, url_prefix="/pre_match")
 
     from .User_models import (
         User

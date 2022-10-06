@@ -1,0 +1,5 @@
+# exclude everything in backups directory
+Backups/*
+
+# except the guidelines file -> This allows to commit almost empty directories to git.
+!Backups/Backup_Guidelines.txt

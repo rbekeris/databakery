@@ -1,0 +1,2 @@
+3) The backups are named by the following convention:
+    Backup_YYYY-MM-DDTHH:MM.sql

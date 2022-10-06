@@ -12,11 +12,23 @@ services:
       - "32000:3306"
     environment:
       - POSTGRES_PASSWORD=${DB_ADMIN_PASSWORD}
+  flyway:
+    #USING ENV VARIABLES: https://flywaydb.org/documentation/v6/envvars
+    #Basic Guide https://dev.to/arojunior/the-best-and-easy-way-to-handle-database-migrations-version-control-pdg 
+    #Multiple Schema management: https://flywaydb.org/blog/multipleschemas
+    image: flyway/flyway
+    #----------!!!!!!!!!!!!!!!!!!!!!-----------------------> change migrate to baseline when starting from initial SQL
+    command: baseline
+    volumes:
+      - ./Migrations:/flyway/sql
+    depends_on:
+      - db
+    env_file: .env
 
   webapp:
     build:
       context: .
-      dockerfile: ./Bakerapp/Dockerfile
+      dockerfile: ./Webapp/Dockerfile
     links:
       - db
     ports:
