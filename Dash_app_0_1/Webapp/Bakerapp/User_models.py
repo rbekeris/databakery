@@ -11,6 +11,7 @@ class User(UserMixin, db.Model):
     """methods and variables representing things to do with user data on database"""
 
     __tablename__ = "users"
+    __table_args__ = {"schema": "core_schema"}
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(64), unique=True, index=True)
     username = db.Column(db.String(64), unique=True, index=True)

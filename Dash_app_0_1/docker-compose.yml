@@ -9,7 +9,7 @@ services:
       dockerfile: Dockerfile
     ports:
       #ports=HOST:CONTAINER
-      - "32000:3306"
+      - "32000:5432"
     environment:
       - POSTGRES_PASSWORD=${DB_ADMIN_PASSWORD}
   flyway:
