@@ -5,7 +5,7 @@
 {% block head %}
 {{ super() }}
 <link rel="shortcut icon" href="{{ url_for('static', filename='pan.ico') }}" type="image/x-icon">
-<link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+<link rel="icon" href="{{ url_for('static', filename='pan.ico') }}" type="image/x-icon">
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
 {% endblock %}
@@ -24,8 +24,8 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="{{ url_for('firstview.index') }}">Pre-match analysis</a></li>
-                <li><a href="{{ url_for('secondview.index') }}">Post-match analysis</a></li>
+                <li><a href="{{ url_for('pre_match.index') }}">Pre-match analysis</a></li>
+                <li><a href="{{ url_for('post_match.index') }}">Post-match analysis</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if current_user.is_authenticated %}

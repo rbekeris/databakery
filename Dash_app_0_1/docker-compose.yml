@@ -29,6 +29,7 @@ services:
     build:
       context: .
       dockerfile: ./Webapp/Dockerfile
+    env_file: .env
     links:
       - db
     ports:

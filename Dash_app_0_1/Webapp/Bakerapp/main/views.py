@@ -2,11 +2,9 @@ from flask import render_template
 from . import main
 import plotly
 import plotly.graph_objs as go
-import pandas as pd
-import numpy as np
 import json
 
-def create_plot()
+def create_plot():
     trace_1 = go.Scatter(
                         x=(1,2,3),
                         y=(1,2,3),
@@ -20,6 +18,8 @@ def create_plot()
     data = [trace_1, trace_2]
     graphJSON = json.dumps(data, cls=plotly.utils.PlotlyJSONEncoder)
     return graphJSON
+
+
 @main.route('/')
 
 def index():
