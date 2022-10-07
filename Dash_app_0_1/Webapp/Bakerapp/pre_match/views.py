@@ -1,4 +1,5 @@
+from flask import render_template
 from . import pre_match
 @pre_match.route('/')
-def index(self):
-    return self.render('second.html')
+def index():
+    return render_template('second.html')
