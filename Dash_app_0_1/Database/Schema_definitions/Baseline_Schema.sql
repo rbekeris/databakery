@@ -13,15 +13,14 @@ CREATE TABLE IF NOT EXISTS Core_Schema.users (
 -- Table Core_Schema.heroes
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS Core_Schema.heroes (
-   Hero_ID SERIAL PRIMARY KEY ,
-   Name VARCHAR(128)
-   );
+   id SERIAL PRIMARY KEY ,
+   name VARCHAR(128),
+   localized_name VARCHAR(128),
+   primary_attr VARCHAR(128),
+   attack_type VARCHAR(128),
+   --each hero can have a list of roles, thus we need to use an array type
+   roles VARCHAR[]);
 
--- Load heroes data
-COPY Core_Schema.heroes
-FROM '/docker-entrypoint-initdb.d/heroes.csv' 
-DELIMITER ','
-CSV HEADER;
 -- -----------------------------------------------------
 -- Table 'Core_Schema'.'items'
 -- -----------------------------------------------------
