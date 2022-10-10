@@ -2,7 +2,6 @@ FROM python:3.9
 
 #Copy files needed for the app to run
 COPY ./Webapp /Webapp
-COPY ./Launch_Codes/keys.json /Webapp/keys.json
 WORKDIR /Webapp
 RUN pip install -r requirements.txt
 
