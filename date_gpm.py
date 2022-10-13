@@ -2,17 +2,24 @@ import json
 import datetime
 import os
 
+# I would like to create a dictionary that contains the date of the match as key, and the GPM as value:
+# First, I create an empty dictionary. 
 date_gpm = {}
 
+#Next, I go through each file in 'Sample_Matches' and find the relevant data I need. 
+# Important to mention is that the account id is manually entered/selected.
 for filename in os.listdir('Sample_Matches'):
     with open(str('Sample_Matches/'+filename)) as f:
         data = json.load(f)
         date_ep = data['start_time']
-        type(date_ep)
+        # since start_time is in epoch format, I want to switch it to regular datetime.
         date = datetime.datetime.fromtimestamp(date_ep).strftime('%Y-%m-%d %H:%M:%S')
+        # the .txt file contains a dictionary for each player, so I need to iterate through each till I find the  account
+        # id I need. 
         for i in range(0,len(data['players'])):
             if data['players'][i]['account_id'] == 1163336706:
                 gpm = data['players'][i]['gold_per_min']
+        # I add the key:value pair to the dict. 
         date_gpm[date] = gpm
 
 print(date_gpm)
