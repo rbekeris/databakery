@@ -10,7 +10,7 @@ for i in response.json():
   match_id = i['match_id']
   all_match_ids.append(match_id)
 
-for id in all_match_ids[0:20]:
+for id in all_match_ids[0:100]:
   match_data = requests.get("https://api.opendota.com/api/matches/{match_id}".format(match_id = id)).json()
   with open('./Sample_matches/{match_id}.txt'.format(match_id = id), 'w') as f:
     json.dump(match_data, f, ensure_ascii=False)

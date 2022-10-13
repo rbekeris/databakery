@@ -1,6 +1,8 @@
 import json
 import datetime
 import os
+import plotly.express as px
+import pandas as pd
 
 # I would like to create a dictionary that contains the date of the match as key, and the GPM as value:
 # First, I create an empty dictionary. 
@@ -23,3 +25,19 @@ for filename in os.listdir('Sample_Matches'):
         date_gpm[date] = gpm
 
 print(date_gpm)
+
+dict_data_final = {'Date': date_gpm.keys(), 'GPM': date_gpm.values()}
+
+df = pd.DataFrame.from_dict(dict_data_final)
+df = df.sort_values(by="Date")
+
+plot = px.scatter(df,
+                  x='Date', 
+                  y='GPM'
+                 ) 
+
+# create a figure with all plots and display it
+plot.show()
+
+fig = px.line(df, x='Date', y='GPM')
+fig.show()
