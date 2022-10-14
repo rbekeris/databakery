@@ -19,7 +19,7 @@ for filename in os.listdir('Sample_Matches'):
         # the .txt file contains a dictionary for each player, so I need to iterate through each till I find the  account
         # id I need. 
         for i in range(0,len(data['players'])):
-            if data['players'][i]['account_id'] == 1163336706:
+            if data['players'][i]['account_id'] == 1083977187:
                 gpm = data['players'][i]['gold_per_min']
         # I add the key:value pair to the dict. 
         date_gpm[date] = gpm

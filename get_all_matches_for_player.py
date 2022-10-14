@@ -2,6 +2,8 @@ import json
 import requests
 import pprint
 
+from sqlalchemy import all_
+
 #let's try to get the response 1st test whats up dawg?
 response = requests.get("https://api.opendota.com/api/players/1163336706/matches")
 
@@ -10,8 +12,10 @@ for i in response.json():
   match_id = i['match_id']
   all_match_ids.append(match_id)
 
+print(all_match_ids)
+
 players_bank = []
-for id in all_match_ids[0:10]:
+for id in all_match_ids[0:60]:
   print("retrieving match with id: {id}".format(id = id))
   match_data = requests.get("https://api.opendota.com/api/matches/{match_id}".format(match_id = match_id)).json()
   for player in match_data['players']:
