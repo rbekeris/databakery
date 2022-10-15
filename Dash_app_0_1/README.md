@@ -7,7 +7,9 @@ All critical environment variables are described in env_variable_list.txt
 ## TO-DO
 
 - [x] Completed example
-- [ ] Populate the env_variable_list.txt
+- [x] Populate the env_variable_list.txt
+- [ ] make the heroes_elt.py work
+- [ ] dockerize the heroes_elt.py
 
 
 

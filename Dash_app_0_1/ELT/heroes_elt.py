@@ -2,16 +2,20 @@ import json
 import requests
 from sqlalchemy import create_engine
 import numpy as np
+from dotenv import load_dotenv
+import os
 
-engine = create_engine('conn_string_here')
+load_dotenv()
+db_connection_string = os.getenv('SQLALCHEMY_DATABASE_URL_FROM_OUTSIDE_CONTAINER_NETWORK')
+engine = create_engine(db_connection_string)
 
 heroes = requests.get("https://api.opendota.com/api/heroes").json()
 
 for hero in heroes:
     id = hero['id']
-    name = str(hero['name'])
-    localized_name = str(hero['localized_name'])
-    attack_type = str(hero['attack_type'])
+    name = hero['name']
+    localized_name = hero['localized_name']
+    attack_type = hero['attack_type']
     #roles = hero['roles']
 
     engine.execute('''INSERT INTO core_schema.heroes (id,
