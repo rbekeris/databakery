@@ -1,0 +1,4 @@
+DB_ADMIN_PASSWORD= Mandatory for docker postgres to start
+SQLALCHEMY_DATABASE_URI= this URI is for accessing the database from another container
+FLASK_CONFIG= [development, production, default] -> Webapp/config.py is the place where the logic is formed for each of the "environments" 
+SQLALCHEMY_DATABASE_URL_FROM_OUTSIDE_CONTAINER_NETWORK= this URI is for accessing the database from any client outside the docker-compose containers EX:dbeaver
