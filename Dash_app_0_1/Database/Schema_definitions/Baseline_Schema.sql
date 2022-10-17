@@ -29,6 +29,18 @@ CREATE TABLE IF NOT EXISTS Core_Schema.items (
    Name VARCHAR(128)
    );
 
+CREATE TABLE IF NOT EXISTS Core_Schema.steam_accounts (
+  id SERIAL PRIMARY KEY,
+  Steam32_ID bigint NULL DEFAULT NULL,
+  Steam64_ID bigint NULL DEFAULT NULL,
+  Steam_Nick_Name VARCHAR NULL DEFAULT NULL,
+  user_id SERIAL,
+  CONSTRAINT fk_user_id
+      FOREIGN KEY(user_id) 
+	  REFERENCES Core_Schema.users(id)
+	  ON DELETE SET NULL
+  );
+
 -- Load item data
 COPY Core_Schema.items
 FROM '/docker-entrypoint-initdb.d/items.csv' 
